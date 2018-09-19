@@ -1,11 +1,12 @@
-package com.game.controller;
+package com.game.controller.impl;
 
+import com.game.controller.BasicController;
 import com.game.players.Player;
 import com.game.service.FightService;
 import com.game.service.GeneralService;
 import com.game.service.PlayerService;
 
-public class ControllerImpl implements BasicController{
+public class ControllerImpl implements BasicController {
     private FightService fightService;
     private PlayerService playerService;
     private GeneralService generalService;
