@@ -5,14 +5,14 @@ import com.game.service.FightService;
 import com.game.service.GeneralService;
 import com.game.service.PlayerService;
 
-public class BasicControllerImpl implements BasicController{
+public class ControllerImpl implements BasicController{
     private FightService fightService;
     private PlayerService playerService;
     private GeneralService generalService;
 
-    public BasicControllerImpl(FightService fightService,
-                               PlayerService playerService,
-                               GeneralService generalService){
+    public ControllerImpl(FightService fightService,
+                          PlayerService playerService,
+                          GeneralService generalService){
         this.fightService = fightService;
         this.playerService = playerService;
         this.generalService = generalService;
@@ -22,8 +22,8 @@ public class BasicControllerImpl implements BasicController{
         generalService.explore();
     }
 
-    public void createCharacter() {
-        playerService.createCharacter();
+    public void createCharacter(Player player) {
+        playerService.createCharacter(player);
     }
 
     public void fight(Player player) {
