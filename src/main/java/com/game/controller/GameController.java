@@ -1,21 +1,17 @@
-package com.game.controller.impl;
+package com.game.controller;
 
-import com.game.controller.BasicController;
+import com.game.characters.GameCharacter;
 import com.game.players.Player;
 import com.game.service.FightService;
 import com.game.service.GeneralService;
-import com.game.service.PlayerService;
 
-public class ControllerImpl implements BasicController {
+public class GameController {
     private FightService fightService;
-    private PlayerService playerService;
     private GeneralService generalService;
 
-    public ControllerImpl(FightService fightService,
-                          PlayerService playerService,
+    public GameController(FightService fightService,
                           GeneralService generalService){
         this.fightService = fightService;
-        this.playerService = playerService;
         this.generalService = generalService;
 
     }
@@ -23,8 +19,8 @@ public class ControllerImpl implements BasicController {
         generalService.explore();
     }
 
-    public void createCharacter(Player player) {
-        playerService.createCharacter(player);
+    public GameCharacter createCharacter(Player player, String characterName) {
+        return generalService.createCharacter(player, characterName);
     }
 
     public void fight(Player player) {
@@ -32,6 +28,6 @@ public class ControllerImpl implements BasicController {
     }
 
     public void getStats(Player player) {
-        playerService.getStats(player);
+        generalService.getStats(player);
     }
 }
