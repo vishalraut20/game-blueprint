@@ -15,12 +15,15 @@ public class GameController {
         this.generalService = generalService;
 
     }
-    public void explore() {
-        generalService.explore();
+    public void registerPlayer(String playerName){
+        generalService.registerPlayer(playerName);
+    }
+    public GameCharacter createCharacter(String player, String characterName) {
+        return generalService.createCharacter(player, characterName);
     }
 
-    public GameCharacter createCharacter(Player player, String characterName) {
-        return generalService.createCharacter(player, characterName);
+    public void explore() {
+        generalService.explore();
     }
 
     public void fight(Player player) {
