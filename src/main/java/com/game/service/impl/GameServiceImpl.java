@@ -1,6 +1,6 @@
 package com.game.service.impl;
 
-import com.game.CreateCharacterDTO;
+import com.game.dtos.CreateCharacterDTO;
 import com.game.characters.GameCharacter;
 import com.game.characters.impl.GameCharacterImpl;
 import com.game.core.Game;

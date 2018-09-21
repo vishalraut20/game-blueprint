@@ -1,6 +1,6 @@
 package com.game.service;
 
-import com.game.CreateCharacterDTO;
+import com.game.dtos.CreateCharacterDTO;
 import com.game.core.Game;
 import com.game.service.impl.GameServiceImpl;
 import org.junit.Before;

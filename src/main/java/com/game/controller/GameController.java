@@ -1,6 +1,6 @@
 package com.game.controller;
 
-import com.game.CreateCharacterDTO;
+import com.game.dtos.CreateCharacterDTO;
 import com.game.characters.GameCharacter;
 import com.game.players.Player;
 import com.game.service.FightService;
