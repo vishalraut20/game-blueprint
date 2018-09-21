@@ -1,11 +1,12 @@
 package com.game.service;
 
+import com.game.CreateCharacterDTO;
 import com.game.characters.GameCharacter;
 import com.game.players.Player;
 
-public interface GeneralService {
+public interface GameService {
     public void explore();
-    public GameCharacter createCharacter(String player, String characterName);
+    public GameCharacter createCharacter(CreateCharacterDTO characterInfo);
     public void registerPlayer(String playerName);
     public void getStats(Player player);
 }

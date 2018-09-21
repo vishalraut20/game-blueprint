@@ -1,25 +1,25 @@
 package com.game.service.impl;
 
+import com.game.CreateCharacterDTO;
 import com.game.characters.GameCharacter;
 import com.game.characters.impl.GameCharacterImpl;
 import com.game.core.Game;
 import com.game.players.Player;
-import com.game.players.impl.PlayerImpl;
-import com.game.service.GeneralService;
+import com.game.service.GameService;
 
-public class GeneralServiceImpl implements GeneralService {
+public class GameServiceImpl implements GameService {
 
     private Game game;
-    public GeneralServiceImpl(Game game){
+    public GameServiceImpl(Game game){
         this.game = game;
     }
     public void explore() {
         System.out.println("Player is exploring");
     }
 
-    public GameCharacter createCharacter(String playerName, String characterName) {
-        Player currentPlayer = game.getPlayerInfoByName(playerName);
-        GameCharacter newCharacter = new GameCharacterImpl(characterName);
+    public GameCharacter createCharacter(CreateCharacterDTO characterInfo) {
+        Player currentPlayer = game.getPlayerInfoByName(characterInfo.getPlayerName());
+        GameCharacter newCharacter = new GameCharacterImpl(characterInfo.getCharacterName());
         currentPlayer.addCharacterToPlayer(newCharacter);
         return newCharacter;
     }

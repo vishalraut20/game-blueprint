@@ -1,29 +1,30 @@
 package com.game.controller;
 
+import com.game.CreateCharacterDTO;
 import com.game.characters.GameCharacter;
 import com.game.players.Player;
 import com.game.service.FightService;
-import com.game.service.GeneralService;
+import com.game.service.GameService;
 
 public class GameController {
     private FightService fightService;
-    private GeneralService generalService;
+    private GameService gameService;
 
     public GameController(FightService fightService,
-                          GeneralService generalService){
+                          GameService gameService){
         this.fightService = fightService;
-        this.generalService = generalService;
+        this.gameService = gameService;
 
     }
     public void registerPlayer(String playerName){
-        generalService.registerPlayer(playerName);
+        gameService.registerPlayer(playerName);
     }
-    public GameCharacter createCharacter(String player, String characterName) {
-        return generalService.createCharacter(player, characterName);
+    public GameCharacter createCharacter(CreateCharacterDTO characterInfo) {
+        return gameService.createCharacter(characterInfo);
     }
 
     public void explore() {
-        generalService.explore();
+        gameService.explore();
     }
 
     public void fight(Player player) {
@@ -31,6 +32,6 @@ public class GameController {
     }
 
     public void getStats(Player player) {
-        generalService.getStats(player);
+        gameService.getStats(player);
     }
 }
