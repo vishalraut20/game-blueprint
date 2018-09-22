@@ -5,9 +5,7 @@ import com.game.players.impl.PlayerImpl;
 
 import java.security.InvalidParameterException;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class Game {
     private Map<String, Player> playersInTheGame;
@@ -23,7 +21,7 @@ public class Game {
         playersInTheGame.put(playerName, new PlayerImpl(playerName));
     }
 
-    public Player getPlayerInfoByName(String playerName) throws  InvalidParameterException{
+    public Player playerInfoByName(String playerName) throws  InvalidParameterException{
         if(playersInTheGame.get(playerName) == null){
             throw new InvalidParameterException("Player name does not exist");
         }

@@ -1,7 +1,7 @@
 package com.game.service;
 
-import com.game.players.Player;
+import com.game.characters.GameCharacter;
 
 public interface FightService {
-    public void fight(Player player);
+    public GameCharacter fightWithDefaultCharacter(GameCharacter fightCharacter);
 }

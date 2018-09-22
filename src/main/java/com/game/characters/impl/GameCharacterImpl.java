@@ -5,9 +5,11 @@ import com.game.characters.GameCharacter;
 public class GameCharacterImpl implements GameCharacter {
 
     private String characterName;
+    private int level;
 
     public GameCharacterImpl(String characterName){
         this.setCharacterName(characterName);
+        setLevel(0);
     }
 
     public String getCharacterName() {
@@ -20,5 +22,17 @@ public class GameCharacterImpl implements GameCharacter {
 
     public void move() {
 
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    private void setLevel(int level) {
+        this.level = level;
+    }
+
+    public void increaseCharacterLevel(){
+        this.level++;
     }
 }

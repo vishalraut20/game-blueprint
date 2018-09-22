@@ -27,8 +27,8 @@ public class GameController {
         gameService.explore();
     }
 
-    public void fight(Player player) {
-        fightService.fight(player);
+    public void fight(GameCharacter character) {
+        fightService.fightWithDefaultCharacter(character);
     }
 
     public void getStats(Player player) {

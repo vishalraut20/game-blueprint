@@ -18,7 +18,7 @@ public class GameServiceImpl implements GameService {
     }
 
     public GameCharacter createCharacter(CreateCharacterDTO characterInfo) {
-        Player currentPlayer = game.getPlayerInfoByName(characterInfo.getPlayerName());
+        Player currentPlayer = game.playerInfoByName(characterInfo.getPlayerName());
         GameCharacter newCharacter = new GameCharacterImpl(characterInfo.getCharacterName());
         currentPlayer.addCharacterToPlayer(newCharacter);
         return newCharacter;

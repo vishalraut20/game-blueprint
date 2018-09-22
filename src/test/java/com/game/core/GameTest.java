@@ -11,19 +11,19 @@ public class GameTest {
 
     @Test(expected = InvalidParameterException.class)
     public void testGetPlayer_NoPlayerAvailable(){
-        game.getPlayerInfoByName(playerName1);
+        game.playerInfoByName(playerName1);
     }
 
     @Test
     public void testGetPlayer(){
         game.registerPlayer(playerName1);
-        assertEquals(playerName1, game.getPlayerInfoByName(playerName1).getPlayerName());
+        assertEquals(playerName1, game.playerInfoByName(playerName1).getPlayerName());
     }
 
     @Test
     public void testRegisterPlayer(){
         game.registerPlayer(playerName1);
-        assertEquals(playerName1, game.getPlayerInfoByName(playerName1).getPlayerName());
+        assertEquals(playerName1, game.playerInfoByName(playerName1).getPlayerName());
     }
 
     @Test(expected = InvalidParameterException.class)
