@@ -3,7 +3,7 @@ package com.game.service.impl;
 import com.game.core.Game;
 import com.game.service.GameService;
 import com.game.service.GameStateSeervice;
-import com.game.staetmanagement.StateManager;
+import com.game.statemanagement.StateManager;
 
 public class GameStateServiceImpl implements GameStateSeervice {
 

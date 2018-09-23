@@ -1,7 +1,7 @@
-package com.game.staetmanagement.impl;
+package com.game.statemanagement.impl;
 
 import com.game.core.Game;
-import com.game.staetmanagement.StateManager;
+import com.game.statemanagement.StateManager;
 
 import java.io.*;
 
@@ -9,10 +9,13 @@ public class StateManagerImpl implements StateManager {
 
     private static final String STATE_FILE_LOCATION = "gameState.txt";
 
-    public void saveGameState(Game currentGameState) {
-//        ClassLoader classLoader = this.getClass().getClassLoader();
+    public void saveGameState(Game currentGameState) throws IllegalArgumentException{
+        if(currentGameState == null){
+            throw new IllegalArgumentException("Game State cannot be null");
+        }
+        ClassLoader classLoader = this.getClass().getClassLoader();
         try {
-            FileOutputStream fs = new FileOutputStream(STATE_FILE_LOCATION);
+            FileOutputStream fs = new FileOutputStream(classLoader.getResource(STATE_FILE_LOCATION).getFile());
             ObjectOutputStream os = new ObjectOutputStream(fs);
             os.writeObject(currentGameState);
             os.close();
@@ -24,8 +27,9 @@ public class StateManagerImpl implements StateManager {
 
     public Game loadGameState() {
         Game gameState = new Game();
+        ClassLoader classLoader = this.getClass().getClassLoader();
         try {
-            FileInputStream fs = new FileInputStream(STATE_FILE_LOCATION);
+            FileInputStream fs = new FileInputStream(classLoader.getResource(STATE_FILE_LOCATION).getFile());
             ObjectInputStream os = new ObjectInputStream(fs);
             gameState = (Game) os.readObject();
             os.close();
