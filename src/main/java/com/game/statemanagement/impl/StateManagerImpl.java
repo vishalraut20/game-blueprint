@@ -26,7 +26,7 @@ public class StateManagerImpl implements StateManager {
     }
 
     public Game loadGameState() {
-        Game gameState = new Game();
+        Game gameState;
         ClassLoader classLoader = this.getClass().getClassLoader();
         try {
             FileInputStream fs = new FileInputStream(classLoader.getResource(STATE_FILE_LOCATION).getFile());
@@ -34,8 +34,9 @@ public class StateManagerImpl implements StateManager {
             gameState = (Game) os.readObject();
             os.close();
             fs.close();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (NullPointerException | IOException | ClassNotFoundException e) {
+//            e.printStackTrace();
+            gameState = new Game();
         }
         return gameState;
     }
