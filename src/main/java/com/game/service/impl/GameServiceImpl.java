@@ -1,9 +1,9 @@
 package com.game.service.impl;
 
-import com.game.dtos.CreateCharacterDTO;
 import com.game.characters.GameCharacter;
 import com.game.characters.impl.GameCharacterImpl;
 import com.game.core.Game;
+import com.game.dtos.CreateCharacterDTO;
 import com.game.players.Player;
 import com.game.service.GameService;
 
@@ -30,5 +30,9 @@ public class GameServiceImpl implements GameService {
 
     public void getStats(Player player) {
 
+    }
+
+    public Game currentGameState() {
+        return this.game;
     }
 }

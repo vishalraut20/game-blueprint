@@ -1,6 +1,8 @@
 package com.game.characters;
 
-public interface GameCharacter {
+import java.io.Serializable;
+
+public interface GameCharacter extends Serializable {
     public String getCharacterName();
     public void move();
     public int getLevel();

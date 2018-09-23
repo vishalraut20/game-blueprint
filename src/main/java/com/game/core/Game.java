@@ -3,11 +3,12 @@ package com.game.core;
 import com.game.players.Player;
 import com.game.players.impl.PlayerImpl;
 
+import java.io.Serializable;
 import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Game {
+public class Game implements Serializable {
     private Map<String, Player> playersInTheGame;
 
     public Game(){
