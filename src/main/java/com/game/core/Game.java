@@ -15,11 +15,13 @@ public class Game implements Serializable {
         playersInTheGame = new HashMap<>();
     }
 
-    public void registerPlayer(String playerName) throws InvalidParameterException{
+    public Player registerPlayer(String playerName) throws InvalidParameterException{
         if(playersInTheGame.get(playerName) != null){
             throw new InvalidParameterException("Player name already exists");
         }
-        playersInTheGame.put(playerName, new PlayerImpl(playerName));
+        Player newPlayer = new PlayerImpl(playerName);
+        playersInTheGame.put(playerName, newPlayer);
+        return newPlayer;
     }
 
     public Player playerInfoByName(String playerName) throws  InvalidParameterException{

@@ -33,12 +33,6 @@ public class StateManagerTest {
         stateManager.saveGameState(null);
     }
 
-    @Test(expected = InvalidParameterException.class)
-    public void testLoadState_NoStatePresent() {
-        Game savedGame = stateManager.loadGameState();
-        savedGame.playerInfoByName(playerName1);
-    }
-
     @Test
     public void testLoadState_NoStatePresent_1() {
         Game savedGame = stateManager.loadGameState();

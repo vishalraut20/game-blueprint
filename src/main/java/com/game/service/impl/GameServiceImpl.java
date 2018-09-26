@@ -24,8 +24,8 @@ public class GameServiceImpl implements GameService {
         return newCharacter;
     }
 
-    public void registerPlayer(String playerName) {
-        game.registerPlayer(playerName);
+    public Player registerPlayer(String playerName) {
+        return game.registerPlayer(playerName);
     }
 
     public void getStats(Player player) {

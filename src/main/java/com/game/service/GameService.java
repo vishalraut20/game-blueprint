@@ -6,9 +6,9 @@ import com.game.characters.GameCharacter;
 import com.game.players.Player;
 
 public interface GameService {
-    public void explore();
-    public GameCharacter createCharacter(CreateCharacterDTO characterInfo);
-    public void registerPlayer(String playerName);
-    public void getStats(Player player);
-    public Game currentGameState();
+    void explore();
+    GameCharacter createCharacter(CreateCharacterDTO characterInfo);
+    Player registerPlayer(String playerName);
+    void getStats(Player player);
+    Game currentGameState();
 }

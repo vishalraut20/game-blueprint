@@ -1,5 +1,6 @@
 package com.game.controller;
 
+import com.game.config.AppConfig;
 import com.game.core.Game;
 import com.game.dtos.CreateCharacterDTO;
 import com.game.characters.GameCharacter;
@@ -13,17 +14,17 @@ public class GameController {
     private GameService gameService;
     private GameStateSeervice stateService;
 
-    public GameController(FightService fightService,
-                          GameService gameService,
-                          GameStateSeervice stateService){
-        this.fightService = fightService;
-        this.gameService = gameService;
-        this.stateService = stateService;
+    public GameController(){
+        AppConfig appConfig = AppConfig.appConfig;
+        this.fightService = appConfig.getFightService();
+        this.gameService = appConfig.getGameService();
+        this.stateService = appConfig.getGameStateService();
 
     }
-    public void registerPlayer(String playerName){
-        gameService.registerPlayer(playerName);
+    public Player registerPlayer(String playerName){
+        return gameService.registerPlayer(playerName);
     }
+
     public GameCharacter createCharacter(CreateCharacterDTO characterInfo) {
         return gameService.createCharacter(characterInfo);
     }
@@ -37,7 +38,7 @@ public class GameController {
     }
 
     public void saveGameState(){
-        stateService.saveGameState();
+        stateService.saveGameState(this.gameService.currentGameState());
     }
 
     public Game loadGameState(){

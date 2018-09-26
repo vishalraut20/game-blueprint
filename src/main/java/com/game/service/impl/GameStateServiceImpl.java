@@ -1,22 +1,19 @@
 package com.game.service.impl;
 
 import com.game.core.Game;
-import com.game.service.GameService;
 import com.game.service.GameStateSeervice;
 import com.game.statemanagement.StateManager;
 
 public class GameStateServiceImpl implements GameStateSeervice {
 
     private StateManager gameStateManager;
-    private GameService gameService;
 
-    public GameStateServiceImpl(GameService gameService, StateManager gameStateManager){
-        this.gameService = gameService;
+    public GameStateServiceImpl(StateManager gameStateManager){
         this.gameStateManager = gameStateManager;
     }
 
-    public void saveGameState(){
-        gameStateManager.saveGameState(gameService.currentGameState());
+    public void saveGameState(Game currentGameState){
+        gameStateManager.saveGameState(currentGameState);
     }
 
     public Game loadGameState() {

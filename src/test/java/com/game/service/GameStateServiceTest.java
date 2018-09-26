@@ -11,20 +11,19 @@ import org.junit.Test;
 
 public class GameStateServiceTest {
 
-    private StateManager stateManager;
     private GameService gameService;
     private GameStateSeervice gameStateSeervice;
 
     @Before
     public void setup(){
-        stateManager = new StateManagerImpl();
+        StateManager stateManager = new StateManagerImpl();
         gameService = new GameServiceImpl(new Game());
-        gameStateSeervice = new GameStateServiceImpl(gameService, stateManager);
+        gameStateSeervice = new GameStateServiceImpl(stateManager);
     }
 
     @Test
     public void testSaveGameState(){
-        gameStateSeervice.saveGameState();
+        gameStateSeervice.saveGameState(gameService.currentGameState());
         assertNotNull(gameStateSeervice.loadGameState());
     }
 
